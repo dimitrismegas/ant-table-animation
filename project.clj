@@ -18,7 +18,8 @@
   {:dev
    {:dependencies [[binaryage/devtools "0.9.10"]
                    [cider/piggieback "0.3.9"]
-                   [figwheel-sidecar "0.5.16"]]
+                   [figwheel-sidecar "0.5.16"]
+                   [day8.re-frame/re-frame-10x "0.3.3"]]
 
     :plugins      [[lein-figwheel "0.5.16"]]}
    :prod { }
@@ -29,12 +30,13 @@
    [{:id           "dev"
      :source-paths ["src/cljs"]
      :figwheel     {:on-jsload "ant-table-animation.core/mount-root"}
-     :compiler     {:main                 ant-table-animation.core
+     :compiler     {:closure-defines {re-frame.trace.trace_enabled_QMARK_ true}
+                    :main                 ant-table-animation.core
                     :output-to            "resources/public/js/compiled/app.js"
                     :output-dir           "resources/public/js/compiled/out"
                     :asset-path           "js/compiled/out"
                     :source-map-timestamp true
-                    :preloads             [devtools.preload]
+                    :preloads             [devtools.preload, day8.re-frame-10x.preloady]
                     :external-config      {:devtools/config {:features-to-install :all}}
                     }}
 
