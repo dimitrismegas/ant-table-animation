@@ -37,7 +37,7 @@
                     :output-dir           "resources/public/js/compiled/out"
                     :asset-path           "js/compiled/out"
                     :source-map-timestamp true
-                    :preloads             [devtools.preload, day8.re-frame-10x.preloady]
+                    :preloads             [devtools.preload, day8.re-frame-10x.preload]
                     :external-config      {:devtools/config {:features-to-install :all}}
                     }}
 
