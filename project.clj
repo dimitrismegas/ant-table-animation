@@ -16,7 +16,9 @@
 
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "0.9.10"]]
+   {:dependencies [[binaryage/devtools "0.9.10"]
+                   [cider/piggieback "0.3.9"]
+                   [figwheel-sidecar "0.5.16"]]
 
     :plugins      [[lein-figwheel "0.5.16"]]}
    :prod { }
