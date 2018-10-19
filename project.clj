@@ -39,6 +39,11 @@
                     :source-map-timestamp true
                     :preloads             [devtools.preload, day8.re-frame-10x.preload]
                     :external-config      {:devtools/config {:features-to-install :all}}
+                    :infer-externs true
+                    :npm-deps false
+                    :foreign-libs [{:file "dist/index_bundle.js"
+                                    :provides ["rc-animate"]
+                                    :global-exports {rc-animate Animate}}]
                     }}
 
     {:id           "min"
