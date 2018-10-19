@@ -5,7 +5,19 @@
    [ant-table-animation.events :as events]
    [antizer.reagent :as ant]
    [reagent.core :as reagent]
+   [rc-animate]
    ))
+
+(.log js/console rc-animate)
+
+(defn AnimateBody
+  [props]
+  (.createElement
+    js/React
+    rc-animate
+    (.assign js/Object #js {:transitionName "move", :component "tbody"} props)))
+
+(.log js/console AnimateBody)
 
 (defn orders
   []
@@ -26,6 +38,7 @@
               (re-frame/dispatch [::events/order-deleted (.-product %2)]))}])}]
       :dataSource orders
       :size "small"
+      :components {:body {:wrapper AnimateBody}}
       :pagination {:page-size 20}
       :scroll {:y 300}}]))
 
