@@ -8,3 +8,8 @@
  ::initialize-db
  (fn [_ _]
    db/default-db))
+
+(re-frame/reg-event-db
+ ::order-deleted
+ (fn [db [_ product]]
+   (assoc db :orders (remove #(= product (:product %)) (:orders db)))))
