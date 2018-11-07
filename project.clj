@@ -42,8 +42,9 @@
                     :infer-externs true
                     :npm-deps false
                     :foreign-libs [{:file "dist/index_bundle.js"
-                                    :provides ["rc-animate"]
-                                    :global-exports {rc-animate Animate}}]
+                                    :provides ["rc-animate" "rc-animate-child"]
+                                    :global-exports {rc-animate Animate
+                                                     rc-animate-child AnimateChild}}]
                     }}
 
     {:id           "min"
