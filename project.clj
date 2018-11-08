@@ -1,9 +1,12 @@
 (defproject ant-table-animation "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.10.238"]
-                 [reagent "0.8.1"]
+                 [reagent "0.8.1" :exclusions [cljsjs/react cljsjs/react-dom [cljsjs/react-dom-server]]]
+                 [cljsjs/react "16.5.2-0"]
+                 [cljsjs/react-dom "16.5.2-0"]
+                 [cljsjs/react-dom-server "16.5.2-0"]
                  [re-frame "0.10.5" :exclusions [reagent]]
-                 [antizer "0.3.1"]]
+                 [antizer "0.3.1" :exclusions [cljsjs/react cljsjs/react-dom [cljsjs/react-dom-server]]]]
 
   :plugins [[lein-cljsbuild "1.1.7"]]
 
