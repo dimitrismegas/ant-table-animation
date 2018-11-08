@@ -10,14 +10,11 @@
 
 (.log js/console rc-animate)
 
-(defn AnimateBody
-  [props]
-  (.createElement
-    js/React
-    rc-animate
-    (.assign js/Object #js {:transitionName "move", :component "tbody"} props)))
+(def animate (reagent/adapt-react-class rc-animate))
 
-(.log js/console AnimateBody)
+(def animateBody
+  (fn [props]
+    (reagent/as-element [animate (assoc props :transition-name "move" :component "tbody")])))
 
 (defn orders
   []
@@ -38,7 +35,7 @@
               (re-frame/dispatch [::events/order-deleted (.-product %2)]))}])}]
       :dataSource orders
       :size "small"
-      :components {:body {:wrapper AnimateBody}}
+      :components {:body {:wrapper (reagent/reactify-component animateBody)}}
       :pagination {:page-size 20}
       :scroll {:y 300}}]))
 
